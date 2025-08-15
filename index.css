@@ -1,0 +1,115 @@
+/*Import Fonts*/
+@import url(https://fonts.bunny.net/css?family=kanit:300);
+@import url(https://fonts.bunny.net/css?family=anonymous-pro:400);
+
+* {
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+    font-family: 'Kanit', sans-serif;
+    padding: 0;
+    margin: 0;
+}
+body{
+    color: white;
+    background-color: black;
+}
+.background{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    height: 100vh;
+    width: 100%;          
+    filter: blur(20px);
+    z-index: -1;
+    pointer-events: none;
+    user-select: none;
+}
+.background video{
+  object-fit: cover;
+}
+.center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+.title {
+    font-family: 'Anonymous Pro', monospace;
+    font-size: 60px;
+    text-transform: uppercase;
+    letter-spacing: 10px;
+}
+.nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 20px;
+    padding-left: 20px;
+}
+.nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    margin: 10px;
+}
+.nav img {
+    position: absolute;
+    left: 30px;
+    width: 60px;
+}
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: white;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+/* Hover animation */
+.strikethrough {
+    position: relative;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #333;
+    transition: color 0.3s;
+}
+
+.strikethrough::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 90%;
+    width: 0;
+    height: 2px;
+    background: white;
+    transition: width 0.3s;
+    transform: translateY(-90%);
+}
+
+.strikethrough:hover::after {
+    width: 70%;
+}
+
+/* Loader */
+#loader {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(10px) brightness(50%);
+    z-index: 9999;
+    transition: opacity 512ms ease, visibility 600ms ease;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: none;
+    user-select: none;
+}
+#loader.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
