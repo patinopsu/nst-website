@@ -7,14 +7,14 @@
     <link rel="stylesheet" href="resources/style.css">
     <script src="resources/bgslide.js" defer></script>
     <script type="module" src="resources/trananim.js"></script>
+    <script src="resources/footer.js" defer></script>
     <link rel="shortcut icon" href="/resources/images/favicon.ico" type="image/x-icon">
     <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=anonymous-pro:400|ibm-plex-sans-thai:400" rel="stylesheet" />
 </head>
 <body>
-    <div id="bg1" class="background"></div>
-    <div id="bg2" class="background"></div>
+    <div id="bg-slider" aria-hidden="true"></div>
     <div class="container">
         <header>
             <img src="/resources/images/icon.webp" alt="โลโก้จังหวัดนครศรีธรรมราช">
@@ -28,8 +28,14 @@
             <div class="right-spacer" aria-hidden="true"></div>
         </header>
         <div class="content">
-            <div id="app" aria-live="polite"></div>
+            <div id="app"></div>
+            <footer class="site-footer" aria-hidden="true">
+                <div class="container">
+                    <p>&copy; <span id="copyright-year"></span> ลิขสิทธิ์เป็นของ นายภฑิล เมืองจันทร์<br>ไม่มีส่วนเกี่ยวข้องกับหน่วยงานภาครัฐใดๆ<br><a target="_blank" href="https://patin.dev">เว็บไซต์ส่วนตัว</a> | <a href="https://instagram.com/patinopsu" target="_blank">อินสตาแกรม</a> | <a target="_blank" href="https://github.com/patinopsu/nst-website">ดูซอร์สโค้ด</a></p>
+                </div>
+            </footer>
         </div>
-    </div>  
+    </div>
+
 </body>
 </html>

@@ -2,7 +2,7 @@
 const routes = {
   '#/': '/resources/pages/home.html',
   '#/about': '/resources/pages/about.html',
-  '#/explore': '/resources/pages/about.html',
+  '#/explore': '/resources/pages/explore.html',
   '#/news': '/resources/pages/news.html',
   '#/credit': '/resources/pages/credit.html'
 };
@@ -40,8 +40,6 @@ async function transitionTo(path, push = true) {
     wrapper.innerHTML = html.trim();
     const newEl = wrapper.querySelector('.page') || wrapper.firstElementChild;
     if (!newEl) throw new Error(`No element .page found in ${url}`);
-
-    // simple animation: fade out old, swap, fade in new
     if (prefersReduced) {
       app.innerHTML = '';
       app.appendChild(newEl);
@@ -60,6 +58,7 @@ async function transitionTo(path, push = true) {
             currentEl = app.querySelector('.page') || app.firstElementChild;
             gsap.from(currentEl, { opacity: 0, y: -20, duration: 0.45, ease: 'power2.out' });
             if (currentEl) currentEl.focus();
+            updateFooterForRoute(path);
           }
         });
       } else {

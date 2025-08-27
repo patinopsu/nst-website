@@ -7,20 +7,22 @@
 body {
     background-color: black;
 }
-.background {
-    position: fixed; 
-    inset: 0; 
-    z-index: -1;
-    background-size: cover; 
-    background-position: center;
-    transition: opacity 1s ease; 
-    opacity: 0;
-    z-index: -99999;
-    pointer-events: none;
-    filter: brightness(0.7) blur(3px);
+#bg-slider {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
 }
-.background.visible{ 
-    opacity: 1; 
+.bg-slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transform: scale(1);
+  will-change: opacity, transform;
+  filter: blur(5px) brightness(0.7);
 }
 .container {
     padding-top: 10px;
@@ -68,3 +70,18 @@ body {
 .container header div a:focus-visible::after {
   transform: scaleX(1);
 }
+
+.site-footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: white;
+    text-align: center;
+    margin-bottom: 10px;
+}
+footer a {
+    color: white;
+}
+
+.site-footer.hidden { display: none; }
