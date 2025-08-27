@@ -32,7 +32,7 @@ async function fetchPage(url){
 }
 
 async function transitionTo(path, push = true) {
-  const url = routes[path] || routes['#/'];
+  const url = routes[path] || routes['#/explore'];
   app.setAttribute('aria-busy', 'true');
   try {
     const html = await fetchPage(url);
