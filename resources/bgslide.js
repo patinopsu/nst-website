@@ -7,7 +7,6 @@ const images = [
   '/resources/images/background5.webp'
 ];
 
-// build slides and preload images
 const container = document.getElementById('bg-slider');
 
 function preload(src) {
@@ -23,7 +22,7 @@ Promise.all(images.map(preload))
   .then(startSlider)
   .catch(err => {
     console.warn('Some background images failed to load:', err);
-    startSlider(); // still start with what we have
+    startSlider();
   });
 
 function startSlider() {
@@ -40,23 +39,20 @@ function startSlider() {
 
   if (!slides.length) return;
 
-  // GSAP timeline: adjust timing values below to taste
-  const showDuration = 8;     // how long a slide stays visible (including fade time)
-  const fadeDuration = 2.0;   // fade in/out length
-  const zoomAmount = 1.06;    // final scale on visible
+  const showDuration = 8;
+  const fadeDuration = 2.0;
+  const zoomAmount = 1.06;
 
   const tl = gsap.timeline({ repeat: -1, repeatDelay: 0 });
 
   slides.forEach((slide, i) => {
-    // animate-in
     tl.to(slide, {
-      autoAlpha: 1,            // opacity + visibility
+      autoAlpha: 1,
       scale: zoomAmount,
       duration: fadeDuration,
       ease: 'power2.out'
     }, i * showDuration);
 
-    // animate-out (start so there's a crossfade)
     tl.to(slide, {
       autoAlpha: 0,
       scale: zoomAmount + 0.02,
@@ -64,8 +60,4 @@ function startSlider() {
       ease: 'power2.in'
     }, i * showDuration + showDuration - fadeDuration);
   });
-
-  // optional: pause on hover
-  container.addEventListener('mouseenter', () => tl.pause());
-  container.addEventListener('mouseleave', () => tl.resume());
 }

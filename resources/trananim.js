@@ -77,24 +77,20 @@ async function transitionTo(path, push = true) {
   }
 }
 
-// link handling
 document.addEventListener('click', (e) => {
   const a = e.target.closest('a[data-link]');
   if (!a) return;
   const href = a.getAttribute('href');
-  // ignore external links and protocols
   if (!href || href.startsWith('http') || href.startsWith('mailto:') || href.startsWith('tel:')) return;
   e.preventDefault();
   transitionTo(href, true).catch(() => {});
 });
 
-// back/forward
 window.addEventListener('popstate', (e) => {
   const path = (e.state && e.state.path) || location.pathname;
   transitionTo(path, false).catch(() => {});
 });
 
-// initial load
 window.addEventListener('DOMContentLoaded', () => {
   log('initial path', location.pathname);
   transitionTo(location.pathname, false).catch(err => {
