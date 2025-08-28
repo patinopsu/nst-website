@@ -3,7 +3,6 @@ const routes = {
   '#/': '/resources/pages/home.html',
   '#/about': '/resources/pages/about.html',
   '#/explore': '/resources/pages/explore.html',
-  '#/news': '/resources/pages/news.html',
   '#/credit': '/resources/pages/credit.html'
 };
 
