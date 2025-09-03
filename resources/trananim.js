@@ -3,7 +3,7 @@ const routes = {
   '#/': '/resources/pages/home.html',
   '#/about': '/resources/pages/about.html',
   '#/explore': '/resources/pages/explore.html',
-  '#/credit': '/resources/pages/credit.html'
+  '#/credit': '/resources/pages/credit.html',
 };
 
 const cache = new Map();
